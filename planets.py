@@ -1,22 +1,14 @@
-from collections import defaultdict
-N = int(input())
-
-for i in range(N):
-    planet_len = list(map(int,input().split()))
-    
-    planets = list(map(int,input().split()))
-    
-    planet_map = defaultdict(int)
-    
-    for i in planets:
-        planet_map[i] += 1
+from collections import Counter
+n = int(input())
+for _ in range(n):
+    planets , mach2 = list(map(int,input().split()))
+    arr = list(map(int,input().split()))
+ 
+    count = Counter(arr)
     ans = 0
-    
-    for key,val in planet_map.items():
-        
-        if val > planet_len[1]:
-            ans += planet_len[1]
+    for key,val in count.items():
+        if val > mach2:
+            ans += mach2
         else:
             ans += val
-        
     print(ans)
